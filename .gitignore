@@ -1,8 +1,7 @@
 # banco de dados (gerado automaticamente ao rodar o servidor)
 eco_bike.db
 
-# build do executavel (gerado sob demanda com PyInstaller, veja o README)
-server/
+# arquivos temporarios de build do PyInstaller (a pasta server/ final fica versionada)
 *.spec
 .buildtmp/
 build/

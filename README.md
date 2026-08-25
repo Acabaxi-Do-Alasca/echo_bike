@@ -48,16 +48,14 @@ Depois acesse `http://localhost:8642` no navegador.
 
 ### Opção 2 — sem Python instalado (Windows)
 
-Um `server.exe` autossuficiente pode ser gerado com [PyInstaller](https://pyinstaller.org/) (não precisa de Python na máquina de destino depois de gerado):
+A pasta `server/` já vem pronta neste repositório com um `server.exe` autossuficiente (gerado com [PyInstaller](https://pyinstaller.org/)) — não precisa de Python instalado na máquina de destino. É só dar duplo clique em `iniciar_ecobike.bat`, que sobe o servidor e abre o navegador automaticamente em `http://localhost:8642`.
+
+Se você alterar `server.py`, precisa regerar a pasta `server/` para as mudanças valerem no `.exe`:
 
 ```bash
 pip install pyinstaller
 pyinstaller --onedir --name server --distpath . server.py
 ```
-
-Isso cria uma pasta `server/` com `server.exe` dentro. Depois é só usar o `iniciar_ecobike.bat`, que sobe o servidor e abre o navegador automaticamente em `http://localhost:8642`.
-
-> `server.exe` e a pasta `server/` **não** ficam versionados neste repositório (arquivo binário grande, gerado sob demanda) — veja `.gitignore`.
 
 ## Banco de dados
 
@@ -110,6 +108,7 @@ eco_bike/
 ├── parceiro.js               # Lógica da área da empresa
 ├── server.py                  # Backend (servidor + API + banco de dados)
 ├── iniciar_ecobike.bat         # Atalho: sobe o server.exe e abre o navegador
+├── server/                      # server.exe pronto (gerado com PyInstaller, não precisa de Python)
 └── assets/
     └── ecobike-logo.png         # Logo
 ```
