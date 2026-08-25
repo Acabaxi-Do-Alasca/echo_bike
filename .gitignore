@@ -1,0 +1,16 @@
+# banco de dados (gerado automaticamente ao rodar o servidor)
+eco_bike.db
+
+# build do executavel (gerado sob demanda com PyInstaller, veja o README)
+server/
+*.spec
+.buildtmp/
+build/
+dist/
+
+# python
+__pycache__/
+*.pyc
+
+# ferramentas locais
+.claude/

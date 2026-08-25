@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoBike - Área da empresa parceira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="cadastro-page">
+
+<div class="screen cadastro-screen">
+
+  <header class="app-top">
+    <a class="back-link" href="cadastro.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m12 19-7-7 7-7" />
+        <path d="M19 12H5" />
+      </svg>
+      Voltar
+    </a>
+    <img class="app-logo" src="assets/ecobike-logo.png" alt="EcoBike">
+    <button type="button" id="empresaSairBtn" class="back-link" style="display:none;border:none;background:none;cursor:pointer;">Sair</button>
+  </header>
+
+  <!-- ================= LOGIN / CADASTRO ================= -->
+  <main class="card-wrap" id="authSection">
+    <div class="card">
+      <h1 class="card-title">Área da empresa parceira</h1>
+      <p class="card-subtitle">Cadastre sua empresa ou entre para gerenciar suas recompensas.</p>
+
+      <div class="tab-switch">
+        <button type="button" id="tabLoginBtn" class="tab-btn is-active">Entrar</button>
+        <button type="button" id="tabCadastroBtn" class="tab-btn">Cadastrar empresa</button>
+      </div>
+
+      <form id="empresaLoginForm" novalidate>
+        <div class="field">
+          <label for="loginCnpj">CNPJ<span class="req">*</span></label>
+          <input type="text" id="loginCnpj" inputmode="numeric" maxlength="18" placeholder="00.000.000/0000-00" required>
+        </div>
+        <div class="field">
+          <label for="loginSenha">Senha<span class="req">*</span></label>
+          <input type="password" id="loginSenha" required>
+        </div>
+        <div id="empresaLoginMsg" class="form-msg"></div>
+        <button type="submit" class="submit-btn">Entrar</button>
+      </form>
+
+      <form id="empresaCadastroForm" novalidate style="display:none;">
+        <div class="field">
+          <label for="cadNome">Nome da empresa<span class="req">*</span></label>
+          <input type="text" id="cadNome" required>
+        </div>
+        <div class="field">
+          <label for="cadCnpj">CNPJ<span class="req">*</span></label>
+          <input type="text" id="cadCnpj" inputmode="numeric" maxlength="18" placeholder="00.000.000/0000-00" required>
+        </div>
+        <div class="field">
+          <label for="cadSenha">Senha<span class="req">*</span></label>
+          <input type="password" id="cadSenha" required>
+        </div>
+        <div id="empresaCadastroMsg" class="form-msg"></div>
+        <button type="submit" class="submit-btn">Cadastrar empresa</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- ================= PAINEL DA EMPRESA (logada) ================= -->
+  <main class="card-wrap" id="painelSection" style="display:none;">
+    <div class="card">
+      <h1 class="card-title" id="empresaNomeTitulo">-</h1>
+      <p class="card-subtitle">Gerencie suas recompensas e valide cupons de clientes.</p>
+    </div>
+  </main>
+
+  <main class="card-wrap" id="recompensasSection" style="display:none;">
+    <div class="card">
+      <h2 class="card-title" style="font-size:1.15rem;">Suas recompensas</h2>
+      <p class="card-subtitle">Defina quantos pontos o cliente precisa para o desconto.</p>
+
+      <div id="empresaRecompensasList"></div>
+
+      <form id="novaRecompensaForm" novalidate style="margin-top:1.2rem;">
+        <div class="field">
+          <label for="novoPontos">Pontos necessários<span class="req">*</span></label>
+          <input type="number" id="novoPontos" min="1" required>
+        </div>
+        <div class="field">
+          <label for="novoDesconto">Desconto (ex: R$ 5 de desconto)<span class="req">*</span></label>
+          <input type="text" id="novoDesconto" required>
+        </div>
+        <div id="novaRecompensaMsg" class="form-msg"></div>
+        <button type="submit" class="submit-btn">Adicionar recompensa</button>
+      </form>
+    </div>
+  </main>
+
+  <main class="card-wrap" id="validarSection" style="display:none;">
+    <div class="card">
+      <h2 class="card-title" style="font-size:1.15rem;">Validar cupom</h2>
+      <p class="card-subtitle">Confira o código mostrado pelo cliente.</p>
+
+      <form id="validarForm" novalidate>
+        <div class="field">
+          <label for="codigoInput">Código do cupom<span class="req">*</span></label>
+          <input type="text" id="codigoInput" placeholder="AB12-CD34" required style="text-transform:uppercase;">
+        </div>
+        <button type="submit" class="submit-btn">Validar</button>
+      </form>
+
+      <div id="resultadoBox" class="resultado-box" style="display:none;"></div>
+    </div>
+  </main>
+
+</div>
+
+<script src="parceiro.js"></script>
+</body>
+</html>

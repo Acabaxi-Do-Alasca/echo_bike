@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoBike - Meu painel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="cadastro-page">
+
+<div class="screen cadastro-screen">
+
+  <header class="app-top">
+    <img class="app-logo" src="assets/ecobike-logo.png" alt="EcoBike">
+    <a class="back-link" href="cadastro.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m12 19-7-7 7-7" />
+        <path d="M19 12H5" />
+      </svg>
+      Voltar
+    </a>
+  </header>
+
+  <main class="card-wrap">
+    <div class="card" id="dashboardCard">
+      <p class="card-subtitle">Carregando seu painel...</p>
+    </div>
+  </main>
+
+  <main class="card-wrap" id="pedaladaWrap" style="display:none;">
+    <div class="card">
+      <h2 class="card-title" style="font-size:1.15rem;">Registrar pedalada</h2>
+      <p class="card-subtitle">Simule uma volta de bike para somar km e pontos.</p>
+
+      <div class="field">
+        <label for="distanciaInput">Distância percorrida</label>
+        <div class="dob-row">
+          <input type="number" id="distanciaInput" min="0.01" step="any" placeholder="Ex: 500" style="flex:2;">
+          <select id="unidadeSelect" style="flex:1;">
+            <option value="m">metros</option>
+            <option value="km">km</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="button" id="registrarPedaladaBtn" class="submit-btn">Registrar pedalada</button>
+      <div id="pedaladaMsg" class="form-msg"></div>
+    </div>
+  </main>
+
+  <main class="card-wrap" id="recompensasWrap" style="display:none;">
+    <div class="card">
+      <h2 class="card-title" style="font-size:1.15rem;">Recompensas disponíveis</h2>
+      <p class="card-subtitle">Troque seus pontos por desconto em restaurantes parceiros.</p>
+      <div id="recompensasList"></div>
+      <div id="resgateMsg" class="form-msg"></div>
+    </div>
+  </main>
+
+  <main class="card-wrap" id="cuponsWrap" style="display:none;">
+    <div class="card">
+      <h2 class="card-title" style="font-size:1.15rem;">Meus cupons</h2>
+      <p class="card-subtitle">Cupons que você já resgatou.</p>
+      <div id="cuponsList"></div>
+    </div>
+  </main>
+
+</div>
+
+<div id="voucherModal" class="modal-overlay">
+  <div class="modal-box">
+    <svg class="modal-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+    <p class="modal-msg" id="voucherMsg"></p>
+    <p class="voucher-code" id="voucherCode"></p>
+    <p class="card-subtitle">Mostre esse código na loja parceira.</p>
+    <button type="button" id="voucherCloseBtn" class="modal-close-btn">Fechar</button>
+  </div>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
